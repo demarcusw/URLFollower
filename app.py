@@ -1,5 +1,6 @@
 from flask import Flask, json, request, jsonify, make_response
 from constants import *
+from api.linkfollower import follow, is_redirect
 
 app = Flask(__name__)
 
@@ -13,7 +14,9 @@ def index():
     elif request.method == POST:
         if request.is_json:
             req = request.get_json()
-
+            url = req.get('url')
+            # _ = follow(url)
+            
             resp_body = {
                 "message": "JSON Received!",
                 "sender": req.get('name')
