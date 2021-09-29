@@ -1,5 +1,6 @@
 import requests
 from constants import MAX_REDIRECT_DEPTH, REDIRECT_CODES, UA
+from random import choice
 
 
 def is_redirect(status_code: int) -> bool:
@@ -8,7 +9,7 @@ def is_redirect(status_code: int) -> bool:
 
 def follow(url: str) -> dict:
     headers = {
-        'User-Agent': UA,
+        'User-Agent': choice(UA),  # pick random UA
         'Accept': 'text/html'
     }
 
