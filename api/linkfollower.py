@@ -1,6 +1,5 @@
 import requests
 from constants import MAX_REDIRECT_DEPTH, REDIRECT_CODES, UA
-from random import choice
 
 
 def is_redirect(status_code: int) -> bool:
@@ -9,12 +8,11 @@ def is_redirect(status_code: int) -> bool:
 
 def follow(url: str) -> dict:
     headers = {
-        'User-Agent': choice(UA),  # pick random UA
+        'User-Agent': UA,
         'Accept': 'text/html'
     }
 
     resp = requests.get(url, allow_redirects=False, headers=headers)
-    print(f'Status code is: {resp.status_code}')
     if is_redirect(resp.status_code):
         loc = resp.headers.get('location')
         if not loc:
