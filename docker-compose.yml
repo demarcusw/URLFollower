@@ -1,0 +1,14 @@
+version: "3.7"
+
+services:
+  url-follower:
+    build: ./flask-app
+    container_name: url-follower
+    expose:
+      - 5000
+  
+  nginx:
+    build: ./nginx
+    container_name: nginx
+    ports:
+    - "8080:8080"
