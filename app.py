@@ -5,11 +5,10 @@ from api.linkfollower import go_follow
 app = Flask(__name__)
 
 
-@app.route('/', methods=["GET", "POST"])
+@app.route('/', methods=[GET, POST])
 def index():
     if request.method == GET:
-        resp = None
-        return make_response(jsonify(resp), 200)
+        return make_response(jsonify(None), 200)
 
     elif request.method == POST:
         if request.is_json:
