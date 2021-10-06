@@ -19,13 +19,13 @@ def index():
 
                 return make_response(jsonify(resp), 200)
             except Exception as e:
-                return make_response(jsonify(e), 400)
+                return make_response(jsonify(str(e)), 400)
 
         else:
             msg = {"message": "Request body must be JSON!"}
             return make_response(jsonify(msg), 400)
     else:
-        pass
+        return make_response(jsonify(None), 400)
 
 
 if __name__ == "__main__":

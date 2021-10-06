@@ -12,7 +12,12 @@ def follow(url: str) -> dict:
         'Accept': 'text/html'
     }
 
-    resp = requests.get(url, allow_redirects=False, headers=headers)
+    resp = None
+    try:
+        resp = requests.get(url, allow_redirects=False, headers=headers)
+    except requests.exceptions.ConnectionError:
+        raise Exception("Invalid URL")
+
     if is_redirect(resp.status_code):
         loc = resp.headers.get('location')
         if not loc:
@@ -25,6 +30,9 @@ def follow(url: str) -> dict:
 
 
 def go_follow(url: str) -> list:
+    if url is None:
+        raise Exception("No URL provided")
+        
     results = []
     count = 1
     keep_going = True
