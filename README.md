@@ -1,3 +1,4 @@
+[![Run Python Tests](https://github.com/demarcusw/URLFollower/actions/workflows/python-test.yml/badge.svg?branch=main)](https://github.com/demarcusw/URLFollower/actions/workflows/python-test.yml)
 # URLFollower
 Tool to chase those pesky redirects so I dont have to. Mostly to see where spam redirects go 😛
 
