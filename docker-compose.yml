@@ -4,11 +4,24 @@ services:
   url-follower:
     build: ./flask-app
     container_name: url-follower
-    expose:
+    ports:
       - 5000
+  
+  react-app:
+    build: ./react-app
+    container_name: react-app
+    ports:
+      - 3000
+    depends_on:
+      - url-follower
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+      - WATCHPACK_POLLING=true
   
   nginx:
     build: ./nginx
     container_name: nginx
     ports:
-    - "8080:8080"
+      - "8080:8080"
+    depends_on:
+      - react-app
