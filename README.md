@@ -5,26 +5,10 @@ A full-stack web application that traces URL redirects. The backend is built wit
 ## Features
 
 - **URL Tracing**: Enter any URL and see all the redirects it goes through
-- **Beautiful UI**: Modern, responsive React interface with gradient backgrounds and smooth animations
+- **User-Agent Spoofing**: Uses realistic browser headers
 - **Real-time Results**: See step-by-step redirect information with status codes
 - **Error Handling**: Graceful error handling for invalid URLs and network issues
 
-## Project Structure
-
-```
-URLFollower/
-├── flask-app/          # Flask backend API
-│   ├── app.py         # Main Flask application
-│   ├── api/           # API modules
-│   └── requirements.txt
-├── src/               # React frontend
-│   ├── App.js         # Main React component
-│   ├── App.css        # Styling
-│   └── index.js       # React entry point
-├── public/            # Static files
-├── package.json       # React dependencies
-└── README.md
-```
 
 ## Getting Started
 
@@ -103,17 +87,14 @@ Response format:
 ## Features
 
 ### Frontend Features
-- **Modern UI**: Beautiful gradient design with smooth animations
 - **Responsive Design**: Works perfectly on desktop, tablet, and mobile
 - **Real-time Feedback**: Loading states and error handling
-- **Keyboard Support**: Press Enter to trace URLs
 - **Step-by-step Results**: Clear visualization of each redirect step
 
 ### Backend Features
 - **URL Validation**: Proper URL format checking
 - **Redirect Following**: Follows up to 10 redirects (configurable)
 - **Error Handling**: Graceful handling of network errors and invalid URLs
-- **User-Agent Spoofing**: Uses realistic browser headers
 - **Status Code Support**: Handles all common redirect status codes (301, 302, 303, 307, 308)
 
 ## Development
@@ -152,13 +133,6 @@ docker-compose up
 
 This will start both the Flask backend and nginx reverse proxy.
 
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
 
 ## License
 
